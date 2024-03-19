@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { useAddProductMutation, useGetGoodsQuery, useDeleteProductMutation } from './redux/goodsApi';
 import { useState } from 'react';
@@ -7,9 +6,8 @@ function App() {
   const [count, setCount] = useState('')
   const [newProduct, setNewProduct] = useState('')
   const { data = [], isLoading } = useGetGoodsQuery(count);
-  const [addProduct, { isError }] = useAddProductMutation(newProduct)
+  const [addProduct] = useAddProductMutation(newProduct)
   const [deleteProduct] = useDeleteProductMutation()
-  const afon = 'afon'
 
   const handleDeleteProduct = async (id) => {
     await deleteProduct(id);
